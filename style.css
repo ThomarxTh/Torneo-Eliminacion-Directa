@@ -1,0 +1,49 @@
+:root {
+    --bg: #0f1923;
+    --card: #1f2326;
+    --border: #333;
+    --vlr-red: #ff4655;
+    --vlr-green: #00ff85;
+    --vlr-gold: #ffb800;
+}
+
+body { background: var(--bg); color: #ece8e1; font-family: 'Roboto Condensed', sans-serif; margin: 0; overflow: hidden; }
+.vlr-layout { display: flex; height: 100vh; }
+
+/* Sidebar */
+.sidebar { width: 200px; background: #111; padding: 20px; border-right: 1px solid var(--vlr-red); display: flex; flex-direction: column; z-index: 100; }
+.vlr-logo { font-weight: bold; font-size: 2.5rem; color: var(--vlr-red); text-align: center; }
+.counter { text-align: center; color: var(--vlr-red); font-weight: bold; margin: 10px 0; }
+.added-teams { list-style: none; padding: 5px; flex-grow: 1; font-size: 0.75rem; overflow-y: auto; background: #0a0a0a; border: 1px solid #222; }
+.input-group { display: flex; gap: 5px; margin-bottom: 10px; }
+input { background: #222; border: 1px solid #444; color: white; padding: 10px; flex: 1; outline: none; }
+.btn-main { background: var(--vlr-red); color: white; padding: 12px; font-weight: bold; cursor: pointer; border: none; }
+.control-actions { display: flex; flex-direction: column; gap: 8px; padding-top: 15px; border-top: 1px solid #333; }
+.btn-undo, .btn-reset { background: #333; color: white; border: none; padding: 8px; cursor: pointer; font-size: 0.7rem; }
+
+/* Grid de 7 Columnas con centro espaciado */
+.tournament-scroll { flex: 1; overflow: auto; display: flex; align-items: center; justify-content: center; }
+.bracket-grid { 
+    display: grid; 
+    grid-template-columns: 160px 160px 160px 240px 160px 160px 160px; 
+    align-items: center; 
+    gap: 15px; 
+    padding: 60px;
+}
+
+.column { display: flex; flex-direction: column; gap: 25px; justify-content: center; height: 100%; }
+.bracket-label { font-size: 0.6rem; letter-spacing: 2px; color: #666; text-align: center; border-bottom: 1px solid #333; padding-bottom: 5px; text-transform: uppercase; margin-bottom: 5px; }
+
+.match-card { background: var(--card); border: 1px solid var(--border); border-radius: 4px; }
+.team-slot { padding: 12px; cursor: pointer; font-size: 0.8rem; font-weight: bold; border-bottom: 1px solid #111; display: flex; }
+.team-slot:hover:not(.empty) { background: #292e32; color: var(--vlr-green); }
+.empty { color: #444; cursor: default; }
+
+/* Alineación de celdas */
+.col-0 .team-slot, .col-1 .team-slot, .col-2 .team-slot { justify-content: flex-start; }
+.col-4 .team-slot, .col-5 .team-slot, .col-6 .team-slot { justify-content: flex-end; text-align: right; }
+
+/* Centro (Gran Final) */
+.center-col { display: flex; flex-direction: column; align-items: center; z-index: 50; }
+.final-card { width: 100%; border: 2px solid var(--vlr-gold) !important; transform: scale(1.1); box-shadow: 0 0 30px rgba(255, 184, 0, 0.2); }
+.trophy { font-size: 4rem; margin-bottom: -10px; filter: drop-shadow(0 0 10px var(--vlr-gold)); }
